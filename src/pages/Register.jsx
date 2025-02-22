@@ -38,7 +38,7 @@ const Register = () => {
                     placeholder="Enter Password"
                     labelText="Password"
                 />
-                <button type="submit" className="btn btn-block">submit</button>
+                <button type="submit" className="btn btn-block">Register</button>
                 <p>
                     Already a member?
                     <Link to="/login" className="member-btn">Login</Link>
