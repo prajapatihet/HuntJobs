@@ -1,0 +1,12 @@
+import styled from "styled-components";
+
+
+const Landing = () => {
+    return (
+        <div>
+            <h1>Landing Page</h1>
+        </div>
+    )
+}
+
+export default Landing
