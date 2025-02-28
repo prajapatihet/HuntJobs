@@ -1,9 +1,15 @@
+// export const JOB_STATUS = {
+//   APPLIED: 'Applied',
+//   IN_PROGRESS: 'In-Progress',
+//   INTERVIEW: 'Interview',
+//   SELECTED: 'Selected',
+//   REJECTED: 'Rejected',
+// };
+
 export const JOB_STATUS = {
-  APPLIED: '1. Applied',
-  IN_PROGRESS: '2. In-Progress',
-  INTERVIEW: '3. Interview',
-  SELECTED: '4. Selected',
-  REJECTED: '4. Rejected',
+  PENDING: 'pending',
+  INTERVIEW: 'interview',
+  DECLINED: 'declined',
 };
 
 export const JOB_TYPE = {
