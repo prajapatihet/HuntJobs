@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import {
   DashboardLayout,
   Error,
@@ -10,8 +10,12 @@ import {
   Stats,
   AllJobs,
   Profile,
-  Admin
-} from './pages'
+  Admin,
+} from './pages';
+
+import { action as registerAction } from './pages/Register';
+import { action as loginAction } from './pages/Login';
+import { loader as dashboardLoader } from './pages/DashboardLayout';
 
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem('dark-theme') === 'true';
@@ -23,54 +27,57 @@ checkDefaultTheme();
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <HomeLayout />,
     errorElement: <Error />,
     children: [
       {
         index: true,
-        element: <Landing />
+        element: <Landing />,
       },
       {
-        path: "login",
-        element: <Login />
+        path: 'login',
+        element: <Login />,
+        action: loginAction,
       },
       {
-        path: "register",
-        element: <Register />
+        path: 'register',
+        element: <Register />,
+        action: registerAction,
       },
       {
-        path: "dashboard",
+        path: 'dashboard',
         element: <DashboardLayout />,
+        loader: dashboardLoader,
         children: [
           {
             index: true,
-            element: <AddJob />
+            element: <AddJob />,
           },
           {
-            path: "stats",
-            element: <Stats />
+            path: 'stats',
+            element: <Stats />,
           },
           {
-            path: "all-jobs",
-            element: <AllJobs />
+            path: 'all-jobs',
+            element: <AllJobs />,
           },
           {
-            path: "profile",
-            element: <Profile />
+            path: 'profile',
+            element: <Profile />,
           },
           {
-            path: "admin",
-            element: <Admin />
+            path: 'admin',
+            element: <Admin />,
           },
-        ]
+        ],
       },
-    ]
+    ],
   },
-])
+]);
 
 const App = () => {
-  return <RouterProvider router={router} />
-}
+  return <RouterProvider router={router} />;
+};
 
-export default App
+export default App;
