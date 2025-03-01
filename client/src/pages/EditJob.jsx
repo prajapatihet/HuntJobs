@@ -1,6 +1,6 @@
-import { FormRow, FormRowSelect } from '../components';
+import { FormRow, FormRowSelect, SubmitBtn } from '../components';
 import Wrapper from '../assets/wrappers/DashboardFormPage';
-import { useLoaderData, Form, redirect, useNavigation } from 'react-router-dom';
+import { useLoaderData, Form, redirect } from 'react-router-dom';
 import { JOB_STATUS, JOB_TYPE } from '../../../utils/constants';
 import { toast } from 'react-toastify';
 import customFetch from '../utils/customFetch';
@@ -32,9 +32,6 @@ const EditJob = () => {
   const { job } = useLoaderData();
   //   console.log(job);
 
-  const navigation = useNavigation();
-  const isSubmitting = navigation.state === 'submitting';
-
   return (
     <Wrapper>
       <Form method="post" className="form">
@@ -60,13 +57,7 @@ const EditJob = () => {
             defaultValue={job.jobType}
             list={Object.values(JOB_TYPE)}
           />
-          <button
-            type="submit"
-            className="btn btn-block form-btn"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? 'Updating...' : 'Update'}
-          </button>
+          <SubmitBtn formBtn text="Update" load="Updating..." />
         </div>
       </Form>
     </Wrapper>

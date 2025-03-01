@@ -14,6 +14,14 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
+// Cloudinary config
+import cloudinary from 'cloudinary';
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API_KEY,
+  api_secret: process.env.CLOUD_API_SECRET,
+});
+
 // Constants
 const PORT = process.env.PORT || 5100;
 
@@ -22,9 +30,17 @@ import jobRouter from './routes/jobRouter.js';
 import authRouter from './routes/authRouter.js';
 import userRouter from './routes/userRouter.js';
 
+//Public
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
 // Middleware
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
 import { authMiddleware } from './middleware/authMiddleware.js';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+app.use(express.static(path.resolve(__dirname, './public')));
 
 app.get('/', (req, res) => {
   res.send('Hello World');
@@ -52,6 +68,7 @@ try {
     console.log(`Server is running on http://localhost:${PORT}`);
   });
 } catch (error) {
-  console.log(error);
+  toast;
+  // console.log(error);
   process.exit(1);
 }

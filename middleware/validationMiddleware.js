@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-
 import { body, param, validationResult } from 'express-validator';
 import {
   BadRequestError,
@@ -92,7 +91,7 @@ export const validateUpdateUserInput = withValidationErrors([
     .withMessage('Email is required')
     .isEmail()
     .withMessage('Invalid email')
-    .custom(async (email) => {
+    .custom(async (email, { req }) => {
       const user = await User.findOne({ email });
       if (user && user._id.toString() !== req.user.userId)
         throw new BadRequestError('Email already exists');
