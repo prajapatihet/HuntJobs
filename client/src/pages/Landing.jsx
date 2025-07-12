@@ -15,10 +15,7 @@ const Landing = () => {
             Job <span>tracking</span> app
           </h1>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore
-            odio velit suscipit. In perspiciatis officia est quos, aliquid
-            debitis alias, porro nam dolor repudiandae nostrum cupiditate
-            excepturi! Voluptatem, dolorum pariatur!
+            The Job Tracker Portal lets users log job applications and update their status anytime—like applied, shortlisted, interviewed, selected, or rejected. It also provides visual insights to track performance, showing how often they've been shortlisted, interviewed, or selected.
           </p>
           <Link to="/register" className="btn register-link">
             Register
