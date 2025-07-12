@@ -73,9 +73,9 @@ const Login = () => {
           labelText="Password"
         />
         <SubmitBtn text="Login" load="Please wait..." />
-        <button type="button" className="btn btn-block" onClick={loginDemoUser}>
+        {/* <button type="button" className="btn btn-block" onClick={loginDemoUser}>
           Explore the app
-        </button>
+        </button> */}
         <p>
           Not a member yet?
           <Link to="/register" className="member-btn">
